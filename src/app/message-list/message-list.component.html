@@ -1,0 +1,19 @@
+<div class="col-12" style="background-color:rgb(173, 173, 173);">
+    <nav class="navbar container" style="height: 7em;">
+        <a class="navbar-brand ms-5 text-light" style="font-size: 1.5em;">Whatsapp <i class="bi bi-whatsapp"></i></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </div>
+        <div>
+            <button class="btn btn-dark me-5" style="background-color:rgb(52, 52, 209);
+            font-size: 20px; border-radius: 10px;
+            margin-left:30px; padding: 10px;" routerLink="/menu">Back to menu</button>
+        </div>
+    </nav>
+</div>
+<div *ngIf="contacts" style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; padding: 5em 0em; background: rgb(18,73,115);
+background:rgb(199, 199, 251)">
+    <div *ngFor="let contact of contacts" style="flex-basis: 20%">
+
+        <app-message-item [contact]="contact"></app-message-item>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+
+<!-- NAVBAR -->
+<div class="col-12" style="background-color: #6d6b6b;">
+    <nav class="navbar container" style="height: 7em;">
+
+        <div>
+            <button class="btn btn-dark me-5" style="background-color: #FF4C29" routerLink="/menu">Back to menu</button>
+        </div>
+        <a class="navbar-brand ms-5 text-light" style="font-size: 1.5em">Address book <i class="bi bi-book"></i></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </div>
+        <div class="d-flex">
+            <button class="m-auto btn btn-primary " routerLink="/contact/0">Add new contact</button>
+        </div>
+    </nav>
+</div>
+<div style="background: linear-gradient(90deg, rgba(18,73,115,1) 40%, rgba(255,76,41,1) 100%);">
+
+    <div class="d-flex align-items-center col-12 py-5 gap-3">
+        <input type="text" id="searchFirst" placeholder="search by first name" class="col-2 offset-4 shadow" #searchFirst (input)="searchContactByFirstname(searchFirst.value)">
+        <input type="text" id="searchLast" placeholder="search by last name" class="col-2 shadow" #searchLast (input)="searchContactByLastname(searchLast.value)">
+    </div>
+    <div *ngIf="contacts" class="col-12">
+        <div class="col-12">
+            <h1 class="col-12 text-center text-light" style="letter-spacing: 0.10em">Students</h1>
+            <div *ngFor="let contact of contacts" class="col-8 offset-2 ">
+                <div *ngIf="contact.type == 'student'" class="col-12 my-4">
+                    <app-contact-item [contact]="contact"></app-contact-item>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-flex flex-wrap mt-5">
+            <h1 class="col-12 text-center text-light" style="letter-spacing: 0.10em">Teachers</h1>
+            <div *ngFor="let contact of contacts" class="col-8 offset-2">
+                <div *ngIf="contact.type == 'teacher'" class="col-12 my-3">
+                    <app-contact-item [contact]="contact"></app-contact-item>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

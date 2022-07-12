@@ -1,0 +1,10 @@
+<h2>list messages</h2>
+<ul>
+  <li *ngFor="let contact of contacts">
+    <button type="button">
+      <span class="badge">{{contact.id}}</span>
+      <span class="name">{{contact.firstname}</span>
+    </button>
+  </li>
+</ul>
+<app-contact-list></app-contact-list>
